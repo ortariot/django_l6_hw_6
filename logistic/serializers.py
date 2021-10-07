@@ -13,7 +13,7 @@ class ProductPositionSerializer(serializers.ModelSerializer):
     # настройте сериализатор для позиции продукта на складе  
     class Meta:
         model = StockProduct
-        fields = ['product', 'stock', 'quantity', 'price']
+        fields = ['product', 'quantity', 'price']
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -24,14 +24,18 @@ class StockSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         # достаем связанные данные для других таблиц
         positions = validated_data.pop('positions')
-      
 
         # создаем склад по его параметрам
         stock = super().create(validated_data)
         for item in positions:
-            prod = Product.objects.create(title='pi', description='ro')
-            mod = StockProduct.objects.create(product=prod, stock=stock, quantity=2, price=3)
-            stock.positions.add(mod)
+            new_stok_product = StockProduct.\
+                objects.create(product=item['product'],
+                               stock=stock,
+                               quantity=item['quantity'],
+                               price=item['price']
+                               )
+            stock.positions.add(new_stok_product)
+        
         # здесь вам надо заполнить связанные таблицы
         # в нашем случае: таблицу StockProduct
         # с помощью списка positions
@@ -40,10 +44,22 @@ class StockSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         # достаем связанные данные для других таблиц
+        print(instance)
         positions = validated_data.pop('positions')
-
+        print(validated_data)
+        print(positions)
         # обновляем склад по его параметрам
         stock = super().update(instance, validated_data)
+        sp = stock.positions.get(product=2)
+        sp.objects.update(quantity=77)
+        print(sp)
+        # for item in stock.positions.all():
+        #     # item.quantity = positions[0]['quantity']
+        #     # item.save()
+        #     item = super().update(positions[0]) 
+
+    
+            
 
         # здесь вам надо обновить связанные таблицы
         # в нашем случае: таблицу StockProduct
