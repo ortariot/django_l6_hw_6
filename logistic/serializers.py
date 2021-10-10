@@ -50,6 +50,7 @@ class StockSerializer(serializers.ModelSerializer):
         # print(positions)
         # обновляем склад по его параметрам
         stock = super().update(instance, validated_data)
+
         print(type(stock))
         for item in positions:
             sp = StockProduct.\
@@ -62,6 +63,21 @@ class StockSerializer(serializers.ModelSerializer):
 
         # sp.objects.update(quantity=77)
         # print(sp)
+# =======
+#         # sp = stock.positions.get(product=2)
+#         # sp.objects.update(quantity=77)
+#         # print(positions[0])
+#         for item in positions:
+#             sp, flag = StockProduct.objects.\
+#                 update_or_create(product=item['product'],
+#                                  stock=stock,
+#                                  quantity=item['quantity'],
+#                                  price=item['price']
+#                                  )
+
+#             print(sp)                   
+#             stock.positions.set([sp])
+# >>>>>>> 0294ade3a2db5b6b55e0ac4c683377adc4b65f0d
         # for item in stock.positions.all():
         #     # item.quantity = positions[0]['quantity']
         #     # item.save()
