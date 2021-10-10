@@ -46,17 +46,17 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "1сом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
+  "address": "Заречная 5",
   "positions": [
     {
-      "product": 2,
-      "quantity": 250,
-      "price": 120.50
+      "product": 8,
+      "quantity": 150,
+      "price": 36
     },
     {
-      "product": 3,
-      "quantity": 100,
-      "price": 180
+      "product": 10,
+      "quantity": 1000,
+      "price": 900
     }
   ]
 }
@@ -67,19 +67,19 @@ Content-Type: application/json
 
 ###
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/10/
 Content-Type: application/json
 
 {
   "positions": [
     {
-      "product": 2,
-      "quantity": 100,
+      "product": 1,
+      "quantity": 10030,
       "price": 130.80
     },
     {
-      "product": 3,
-      "quantity": 243,
+      "product": 6,
+      "quantity": 1000000,
       "price": 145
     }
   ]
