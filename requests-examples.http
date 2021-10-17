@@ -46,41 +46,41 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "Заречная 5",
+  "address": "Заречная 28",
   "positions": [
     {
       "product": 8,
-      "quantity": 150,
-      "price": 36
+      "quantity": 21150,
+      "price": 2136
     },
     {
       "product": 10,
-      "quantity": 1000,
-      "price": 900
+      "quantity": 211000,
+      "price": 21900
     }
   ]
 }
 
 ###
-GET {{baseUrl}}/stocks/
+GET {{baseUrl}}/stocks/16
 Content-Type: application/json
 
 ###
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/10/
+PATCH {{baseUrl}}/stocks/16/
 Content-Type: application/json
 
 {
   "positions": [
     {
-      "product": 1,
-      "quantity": 10030,
-      "price": 130.80
+      "product": 2,
+      "quantity": 6,
+      "price": 11
     },
     {
       "product": 6,
       "quantity": 1000000,
-      "price": 145
+      "price": 151
     }
   ]
 }
@@ -90,3 +90,11 @@ Content-Type: application/json
 # поиск складов, где есть определенный продукт
 GET {{baseUrl}}/stocks/?products=2
 Content-Type: application/json
+
+
+###
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?products=помид
+Content-Type: application/json
+
+
