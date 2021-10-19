@@ -7,8 +7,8 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Повидло",
-  "description": "Из Польши"
+  "title": "Помидор",
+  "description": "искусственный"
 }
 
 ###
@@ -20,7 +20,7 @@ Content-Type: application/json
 ###
 
 # обновление продукта
-PATCH {{baseUrl}}/products/1/
+PATCH {{baseUrl}}/products/2/
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{baseUrl}}/stocks/16
+GET {{baseUrl}}/stocks
 Content-Type: application/json
 
 ###
