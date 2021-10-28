@@ -7,8 +7,7 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Помидор",
-  "description": "искусственный"
+  "title": "ананас"
 }
 
 ###
@@ -20,11 +19,11 @@ Content-Type: application/json
 ###
 
 # обновление продукта
-PATCH {{baseUrl}}/products/2/
+PATCH {{baseUrl}}/products/22/
 Content-Type: application/json
 
 {
-  "description": "Самые сочные и ароматные помидорки"
+  "description": "продукты первой необходимости"
 }
 
 ###
@@ -46,12 +45,12 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "Заречная 28",
+  "address": "Заречная 50",
   "positions": [
     {
-      "product": 8,
-      "quantity": 21150,
-      "price": 2136
+      "product": 14,
+      "quantity": 1000,
+      "price": 10
     },
     {
       "product": 10,
@@ -88,13 +87,13 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=2
+GET {{baseUrl}}/stocks/?products=14
 Content-Type: application/json
 
 
 ###
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=помид
+GET {{baseUrl}}/stocks/?products=импорт
 Content-Type: application/json
 
 
